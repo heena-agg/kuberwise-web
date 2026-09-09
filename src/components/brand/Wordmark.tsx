@@ -38,7 +38,7 @@ export function KuberwiseLogo({
  * appears on a gold Kuberwise page.
  */
 export function StockrazeLogo({
-  href = 'stockraze.html',
+  href = 'index.html#stockraze',
   className,
 }: {
   href?: string;

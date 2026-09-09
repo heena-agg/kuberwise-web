@@ -43,7 +43,7 @@
   <use href="#light" x="400" y="238" width="32" height="32"/>
   <use href="#light" x="452" y="246" width="24" height="24"/>
   <use href="#light" x="496" y="254" width="16" height="16"/>
-  <text x="240" y="290" font-family="Helvetica, Arial, sans-serif" font-size="11" fill="#8A909A">64 · 48 · 32 · 24 · 16 px</text>
+  <text x="240" y="290" font-family="Helvetica, Arial, sans-serif" font-size="11" fill="#8A909A">64 ï¿½ 48 ï¿½ 32 ï¿½ 24 ï¿½ 16 px</text>
 
   <!-- dark row -->
   <use href="#dark" x="40" y="350" width="32" height="32"/>
@@ -57,5 +57,5 @@
   <use href="#dark" x="400" y="548" width="32" height="32"/>
   <use href="#dark" x="452" y="556" width="24" height="24"/>
   <use href="#dark" x="496" y="564" width="16" height="16"/>
-  <text x="240" y="600" font-family="Helvetica, Arial, sans-serif" font-size="11" fill="#7A808A">64 · 48 · 32 · 24 · 16 px</text>
+  <text x="240" y="600" font-family="Helvetica, Arial, sans-serif" font-size="11" fill="#7A808A">64 ï¿½ 48 ï¿½ 32 ï¿½ 24 ï¿½ 16 px</text>
 </svg>

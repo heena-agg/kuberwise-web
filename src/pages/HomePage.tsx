@@ -3,8 +3,7 @@ import { PageShell } from '@/components/layout/PageShell';
 import { Container } from '@/components/ui/Container';
 import { Section, SectionIntro } from '@/components/ui/Section';
 import { ButtonLink } from '@/components/ui/Button';
-import { FeatureCard, NumberedItem, Stat } from '@/components/ui/Card';
-import { Checklist } from '@/components/ui/Checklist';
+import { FeatureCard, NumberedItem } from '@/components/ui/Card';
 import { CtaPanel } from '@/components/ui/CtaPanel';
 import { EMAIL } from '@/lib/site';
 
@@ -18,7 +17,7 @@ function Hero() {
       <Container>
         <div className="relative py-24 sm:py-32">
           <a
-            href="stockraze.html"
+            href="#stockraze"
             className="inline-flex items-center gap-2.5 rounded-full border border-line-strong px-4 py-1.5 text-sm text-ink-soft transition-colors hover:border-ink hover:text-ink"
           >
             <span className="h-1.5 w-1.5 rounded-full bg-accent" aria-hidden="true" />
@@ -35,7 +34,7 @@ function Hero() {
           </p>
 
           <div className="mt-10 flex flex-wrap items-center gap-3">
-            <ButtonLink href="stockraze.html" variant="primary" withArrow>
+            <ButtonLink href="#stockraze" variant="primary" withArrow>
               Explore Stockraze
             </ButtonLink>
             <ButtonLink href="contact.html" variant="outline">
@@ -57,23 +56,6 @@ export function HomePage() {
     <PageShell brand="kuberwise">
       <Hero />
 
-      <Section tight>
-        <div className="grid gap-10 sm:grid-cols-2 lg:grid-cols-4">
-          <Stat value="4">
-            Detection strategies shipped in Stockraze, each explainable in one line
-          </Stat>
-          <Stat value="1">
-            Consolidated digest per site, per night — not an inbox of alerts
-          </Stat>
-          <Stat value="0">
-            Changes written back to your stock without your explicit consent
-          </Stat>
-          <Stat value="Edge">
-            Deployable in-store or in your cloud — your data stays where you want it
-          </Stat>
-        </div>
-      </Section>
-
       <Section id="what-we-build" tone="raised">
         <SectionIntro
           eyebrow="What we build"
@@ -82,22 +64,22 @@ export function HomePage() {
         />
 
         <div className="mt-16 grid gap-10 md:grid-cols-3">
-          <FeatureCard icon={<Eye className="h-5 w-5" />} title="See clearly">
-            Operational data arrives in whatever shape the source vendor felt like.
-            We normalise it into one honest picture — without asking you to replace
-            the systems you already run.
+          <FeatureCard icon={<Eye className="h-5 w-5" />} title="See what is sitting still">
+            Operational data arrives messy and incomplete. We turn it into one
+            honest picture of where capital, time, and attention are idle — without
+            asking you to replace the systems you already run.
           </FeatureCard>
 
           <FeatureCard icon={<ListChecks className="h-5 w-5" />} title="Decide with evidence">
-            Every finding carries its reason, its value at risk, and the threshold
-            that raised it. Rules are yours to tune, and you can dry-run a change
-            before it touches a single live decision.
+            Every recommendation carries its reason and the value at stake. You
+            keep the rules and the judgment. Nothing goes live until you have seen
+            why it was raised, and said that it may.
           </FeatureCard>
 
-          <FeatureCard icon={<Zap className="h-5 w-5" />} title="Act before value leaks">
-            Suggestions reach the floor while they are still worth acting on — one
-            consolidated digest a night, addressed to the site that can actually do
-            something about it.
+          <FeatureCard icon={<Zap className="h-5 w-5" />} title="Put value back in motion">
+            Insight is only useful while there is still something to save. We put
+            the next move in front of the person who can take it — in time, not in
+            a dashboard a week later.
           </FeatureCard>
         </div>
       </Section>
@@ -118,25 +100,13 @@ export function HomePage() {
                 Clear the dead weight. Accelerate your flow.
               </p>
               <p className="mt-6 max-w-prose leading-relaxed text-ink-soft">
-                Dead stock is the quietest expense a retailer carries. Stockraze
-                reads your inventory every night, flags the lots that have stopped
-                earning — ageing, expiring, unpicked, over-returned — prices the
-                exposure, and suggests the action while there is still margin left
-                to save.
+                Our first product. It finds value sitting still in your operation
+                and helps you move it — in time, not after the fact.
               </p>
 
-              <Checklist
-                className="mt-8"
-                items={[
-                  'Connects to the systems you already run — file, REST or webhook',
-                  "Maps any vendor's export without a code change",
-                  'Suggests. Never silently rewrites your stock.',
-                ]}
-              />
-
               <div className="mt-10">
-                <ButtonLink href="stockraze.html" variant="accent" withArrow>
-                  See how Stockraze works
+                <ButtonLink href="contact.html" variant="accent" withArrow>
+                  Talk to us
                 </ButtonLink>
               </div>
             </div>
@@ -158,25 +128,25 @@ export function HomePage() {
           <SectionIntro
             eyebrow="How we work"
             title="Value first. Ceremony never."
-            lede="We would rather ship one decision that saves real money than a quarter of discovery decks. Every engagement starts with the number we are trying to move."
+            lede="Every engagement starts with the number we are trying to move. We ship decisions that put value back in motion — not a stack of unused reports."
           />
 
           <div>
-            <NumberedItem index="01" title="Find the leak">
-              We start with your own data and name the value that is currently
-              walking out the door — in currency, not adjectives.
+            <NumberedItem index="01" title="Find what is idle">
+              We start with your own data and name where value is sitting still —
+              in numbers, not adjectives.
             </NumberedItem>
-            <NumberedItem index="02" title="Prove it on a dry run">
-              Before anything goes live, you see exactly what would have been
-              flagged against your real history — and nothing is written.
+            <NumberedItem index="02" title="Prove it first">
+              You see the case on your real history before anything goes live.
+              Nothing changes until you say it may.
             </NumberedItem>
-            <NumberedItem index="03" title="Ship to one site">
-              A single store, a single night, a single digest. If it does not earn
-              its place there, it does not deserve a rollout.
+            <NumberedItem index="03" title="Start small">
+              One team, one workflow. If it does not earn its place there, it
+              does not deserve a rollout.
             </NumberedItem>
             <NumberedItem index="04" title="Scale on evidence">
-              New sites, new verticals, new rules — configured, not rebuilt.
-              Onboarding a new format should not need an engineer.
+              New teams, new use cases — configured, not rebuilt. Growth should
+              not need a rewrite.
             </NumberedItem>
           </div>
         </div>

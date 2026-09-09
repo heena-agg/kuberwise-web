@@ -1,18 +1,15 @@
 import { useEffect, useRef, useState } from 'react';
 import { Menu, X } from 'lucide-react';
 import { cn } from '@/lib/cn';
-import type { Brand } from '@/lib/seo';
 import type { NavLink } from '@/lib/site';
 import { Container } from '@/components/ui/Container';
 import { ButtonLink } from '@/components/ui/Button';
-import { KuberwiseLogo, StockrazeLogo } from '@/components/brand/Wordmark';
+import { KuberwiseLogo } from '@/components/brand/Wordmark';
 
 export function Header({
-  brand,
   links,
   cta,
 }: {
-  brand: Brand;
   links: NavLink[];
   cta: NavLink;
 }) {
@@ -56,8 +53,6 @@ export function Header({
     };
   }, [open]);
 
-  const Logo = brand === 'stockraze' ? StockrazeLogo : KuberwiseLogo;
-
   return (
     <header
       className={cn(
@@ -67,7 +62,7 @@ export function Header({
     >
       <Container>
         <div className="flex h-[4.5rem] items-center justify-between gap-6">
-          <Logo />
+          <KuberwiseLogo />
 
           <nav aria-label="Primary" className="hidden items-center gap-8 lg:flex">
             {links.map((link) => (

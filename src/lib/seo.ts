@@ -3,7 +3,7 @@ import { SITE_URL } from './site';
 export type Brand = 'kuberwise' | 'stockraze';
 
 export interface PageMeta {
-  /** Filename served at the site root, e.g. `stockraze.html`. */
+  /** Filename served at the site root, e.g. `about.html`. */
   path: string;
   title: string;
   description: string;
@@ -25,13 +25,6 @@ export const PAGES = {
     description:
       'Kuberwise builds operational software that finds the value already sitting inside your business and turns it into decisions your team can act on. Flagship product: Stockraze.',
     brand: 'kuberwise',
-  },
-  stockraze: {
-    path: 'stockraze.html',
-    title: 'Stockraze — Clear the dead weight. Accelerate your flow.',
-    description:
-      'Stockraze reads your inventory every night, flags the lots that have stopped earning, prices the exposure, and suggests the action while there is still margin left to save. A Kuberwise product.',
-    brand: 'stockraze',
   },
   about: {
     path: 'about.html',

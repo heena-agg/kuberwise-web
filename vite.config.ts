@@ -15,7 +15,6 @@ export default defineConfig({
     rollupOptions: {
       input: {
         index: page('index'),
-        stockraze: page('stockraze'),
         about: page('about'),
         pricing: page('pricing'),
         contact: page('contact'),

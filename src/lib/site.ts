@@ -11,7 +11,7 @@
 export const SITE_URL = 'https://kuberwise.com';
 
 export const EMAIL = {
-  general: 'hello@kuberwise.com',
+  general: 'admin@kuberwise.com',
   product: 'hello@stockraze.com',
   partnerships: 'partners@kuberwise.com',
 } as const;
@@ -27,7 +27,7 @@ export const PRODUCT = {
   name: 'Stockraze',
   tagline: 'Clear the dead weight. Accelerate your flow.',
   blurb:
-    'Nightly dead-stock detection for retail and distribution. Connect, map, sync, detect, decide, digest.',
+    'Our first product. It finds value sitting still in your operation and helps you move it — in time, not after the fact.',
 } as const;
 
 export interface NavLink {
@@ -39,29 +39,16 @@ export interface NavLink {
 export const COMPANY_NAV: NavLink[] = [
   { label: 'What we build', href: 'index.html#what-we-build' },
   { label: 'Approach', href: 'index.html#approach' },
-  { label: 'Stockraze', href: 'stockraze.html' },
+  { label: 'Stockraze', href: 'index.html#stockraze' },
   { label: 'About', href: 'about.html' },
   { label: 'Pricing', href: 'pricing.html' },
-];
-
-/** Header nav on the Stockraze product page. */
-export const PRODUCT_NAV: NavLink[] = [
-  { label: 'The problem', href: 'stockraze.html#problem' },
-  { label: 'How it works', href: 'stockraze.html#how' },
-  { label: 'Detection', href: 'stockraze.html#detection' },
-  { label: 'For operators', href: 'stockraze.html#operators' },
-  { label: 'Security', href: 'stockraze.html#security' },
-  { label: 'Kuberwise', href: 'index.html' },
 ];
 
 export const FOOTER_COLUMNS: { heading: string; links: NavLink[] }[] = [
   {
     heading: 'Product',
     links: [
-      { label: 'Stockraze', href: 'stockraze.html' },
-      { label: 'How it works', href: 'stockraze.html#how' },
-      { label: 'Detection', href: 'stockraze.html#detection' },
-      { label: 'Security', href: 'stockraze.html#security' },
+      { label: 'Stockraze', href: 'index.html#stockraze' },
       { label: 'Pricing', href: 'pricing.html' },
     ],
   },
