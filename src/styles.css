@@ -1,0 +1,204 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  /*
+   * Surface and text tokens. Every component reads these rather than a literal
+   * colour, so a section can be flipped to dark simply by adding `.on-ink` —
+   * see the override block below.
+   */
+  :root {
+    --paper: 251 250 247;
+    --surface: 255 255 255;
+    --raised: 246 244 239;
+
+    --ink: 20 22 26;
+    --ink-soft: 90 96 106;
+    --ink-faint: 138 144 154;
+
+    --line: 227 224 216;
+    --line-strong: 209 205 195;
+
+    /*
+     * The logo's structural colour — the wordmark and the hexagon body. Navy on
+     * light surfaces, flipping to the light text colour inside `.on-ink` so one
+     * mark serves both.
+     */
+    --brand-ink: 34 57 98;
+
+    /*
+     * The pot knocked out of the hexagon. It reads as a hole, so it tracks the
+     * surface behind the mark rather than being a fixed colour.
+     */
+    --mark-void: 251 250 247;
+
+    /* Overridden by the theme classes below; gold is the default. */
+    --accent: 156 103 32;
+    --accent-bright: 222 159 66;
+    --accent-contrast: 20 22 26;
+  }
+
+  /*
+   * Kuberwise: gold on warm paper. The logo's gold (#DE9F42) only reaches
+   * 2.3:1 on paper, so it is kept for the mark and for dark surfaces, while
+   * `--accent` carries a darkened version of the same hue at 4.6:1 — the
+   * lightest it can be and still clear AA for body-size text.
+   */
+  .theme-kuberwise {
+    --accent: 156 103 32;
+    --accent-bright: 222 159 66;
+    --accent-contrast: 20 22 26;
+  }
+
+  /*
+   * Stockraze: the product blue already used in the Config UI. The accent
+   * button fills with the deep blue rather than the bright one, because white
+   * text only clears WCAG AA against the deep value.
+   */
+  .theme-stockraze {
+    --accent: 29 78 216;
+    --accent-bright: 59 130 246;
+    --accent-contrast: 255 255 255;
+  }
+
+  /*
+   * Dark sections. Used sparingly — one or two anchor moments per page, never
+   * the hero. Flipping the tokens means no component needs a dark variant.
+   */
+  .on-ink {
+    --paper: 15 17 21;
+    --surface: 22 25 31;
+    --raised: 30 34 42;
+
+    --ink: 247 246 243;
+    --ink-soft: 165 170 180;
+    --ink-faint: 122 128 138;
+
+    --line: 44 49 59;
+    --line-strong: 62 68 80;
+
+    /*
+     * Navy disappears on a dark surface, so the mark reverses: the hexagon takes
+     * the light ink and the pot drops back to the dark surface behind it.
+     */
+    --brand-ink: 247 246 243;
+    --mark-void: 15 17 21;
+  }
+
+  .theme-kuberwise .on-ink,
+  .on-ink.theme-kuberwise {
+    --accent: 222 159 66;
+  }
+
+  .theme-stockraze .on-ink,
+  .on-ink.theme-stockraze {
+    --accent: 59 130 246;
+  }
+
+  * {
+    @apply border-line;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    /* Clears the sticky header when jumping to an anchor. */
+    scroll-padding-top: 6rem;
+    -webkit-text-size-adjust: 100%;
+  }
+
+  body {
+    @apply bg-paper font-sans text-base text-ink antialiased;
+    font-feature-settings: 'cv02', 'cv03', 'cv04', 'cv11';
+    text-rendering: optimizeLegibility;
+  }
+
+  ::selection {
+    @apply bg-accent/20 text-ink;
+  }
+
+  :focus-visible {
+    @apply outline-none ring-2 ring-accent ring-offset-2 ring-offset-paper;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
+}
+
+@layer components {
+  /* ---------------------------------------------------------------- Type */
+
+  .display {
+    @apply font-display text-[clamp(2.6rem,6vw,4.5rem)] font-normal leading-[1.02] tracking-[-0.025em] text-ink;
+  }
+
+  .h2 {
+    @apply font-display text-[clamp(1.9rem,3.4vw,2.9rem)] font-normal leading-[1.12] tracking-[-0.02em] text-ink;
+  }
+
+  .h3 {
+    @apply font-sans text-lg font-semibold leading-snug tracking-[-0.01em] text-ink;
+  }
+
+  .lede {
+    @apply text-xl font-normal leading-relaxed text-ink-soft;
+  }
+
+  .eyebrow {
+    @apply text-xs font-semibold uppercase tracking-[0.18em] text-accent;
+  }
+
+  .muted {
+    @apply text-ink-soft;
+  }
+
+  /* -------------------------------------------------------------- Detail */
+
+  /*
+   * Hairline rules instead of card borders, which is what keeps the layout
+   * feeling airy at this density.
+   */
+  .rule {
+    @apply h-px w-full bg-line;
+  }
+
+  .link-underline {
+    @apply underline decoration-line underline-offset-4 transition-colors hover:decoration-accent;
+  }
+
+  .skip-link {
+    @apply sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[60] focus:rounded-lg focus:bg-ink focus:px-4 focus:py-2 focus:text-sm focus:font-medium focus:text-paper;
+  }
+
+  /* ------------------------------------------------------------- Reveals */
+
+  /*
+   * Scroll reveal. Elements start hidden only when JS is available to reveal
+   * them again — `.js-reveal` is added to <html> by the bootstrap — so the
+   * page stays readable if the script fails.
+   */
+  .js-reveal .reveal {
+    @apply opacity-0;
+  }
+
+  .js-reveal .reveal.is-visible {
+    @apply animate-reveal-up;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .js-reveal .reveal {
+      @apply opacity-100;
+    }
+  }
+}
