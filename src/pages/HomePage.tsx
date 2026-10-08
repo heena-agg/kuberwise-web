@@ -6,6 +6,7 @@ import { ButtonLink } from '@/components/ui/Button';
 import { FeatureCard, NumberedItem } from '@/components/ui/Card';
 import { CtaPanel } from '@/components/ui/CtaPanel';
 import { EMAIL } from '@/lib/site';
+import AgentSection from '@/components/feature/AgentSection';
 
 function Hero() {
   return (
@@ -122,6 +123,8 @@ export function HomePage() {
           </div>
         </div>
       </Section>
+
+      <AgentSection />
 
       <Section id="approach" tone="raised">
         <div className="grid gap-16 lg:grid-cols-[0.9fr_1.1fr]">
